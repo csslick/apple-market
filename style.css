@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h4, p {
+  margin: 1rem 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  display: flex;
+  background: #eee;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header h1 {
+  margin-right: auto;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 2em;
+}
+
+
+#main {
+
+}
+
+.product {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.product img {
+  margin-right: 20px;
+}
