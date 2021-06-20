@@ -35,7 +35,7 @@
       <div class="form-group image-upload">
         <label for="image-upload-btn">파일선택</label>
         <input type="file" id="image-upload-btn">
-        <input type="text" class="upload-name" value="선택된 파일 없음" readonly style="color: rgba(0,0,0,0.6)">
+        <input type="text" class="upload-name" value="업로드할 이미지" readonly style="color: rgba(0,0,0,0.6)">
       </div>
       <button id="send">올리기</button>
     </form>
@@ -68,7 +68,9 @@
     $(function(){
       // 파일 선택(변경)시
       $('#image-upload-btn').on('change', function(){
-        $('.upload-name').val($('#image-upload-btn').val())
+        const inputValue = $('#image-upload-btn').val().replace('C:\\fakepath\\','');
+        console.log(inputValue);
+        $('.upload-name').val(inputValue);
       })
     })
   </script>
@@ -101,7 +103,7 @@
           .add(inputValue)
           .then(function(){
             alert('상품이 등록되었습니다.');
-            location.href = './';
+            location.href = './';  // 상품목록(메인)으로 이동
           })
           .catch(function(err){
             alert('상품 등록에 실패했습니다.')
