@@ -19,7 +19,7 @@ function appendHTML(data) {
       <img src="http://placehold.it/300x200" >
       <div class="info">
         <h4 class="title">${data.title}</h4>
-        <p class="price">${data.price}</p>
+        <p class="price">${data.price.toLocaleString()}원</p>
         <p class="price">${trade_date}</p>
       </div>    
     </div>
