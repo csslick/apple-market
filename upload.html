@@ -27,7 +27,7 @@
         <input type="text" id="title" placeholder="제목">
       </div>
       <div class="form-group">
-        <textarea id="text" cols="30" rows="10"></textarea>
+        <textarea id="text" cols="30" rows="10" placeholder="상품 설명을 작성해 주세요"></textarea>
       </div>
       <div class="form-group">
         <input type="text" id="price" placeholder="가격">
@@ -78,18 +78,38 @@
 
     // 상품정보 전송
     $('#send').on('click', function(e){
-      e.preventDefault();
-      const inputValue = {
-        title: title = $('#title').val(),
-        text: text = $('#text').val(),
-        price: Number($('#price').val()),
-        date: new Date().toLocaleString(),
-      }
+      e.preventDefault(); // 기본 이벤트 제거
+      const title = $('#title').val();
+      const text = $('#text').val();
+      const price = Number($('#price').val());
+      const date = new Date().toLocaleString();
       console.log(title, text, price)
 
-      // doc().set()은 documemt명을 직접 작성, add() document명 자동생성(추천)
-      db.collection('product').add(inputValue);
-      alert('상품이 등록되었습니다');
+      if(title && text && price) {
+
+        // 입력된 상품 정보
+        const inputValue = {
+          title: title,
+          text: text,
+          price: price,
+          date: date,
+        }
+        console.log(title, text, price)
+
+        // doc().set()은 documemt명을 직접 작성, add() document명 자동생성(추천)
+        db.collection('product')
+          .add(inputValue)
+          .then(function(){
+            alert('상품이 등록되었습니다.');
+          })
+          .catch(function(err){
+            alert('상품 등록에 실패했습니다.')
+            console.log(err)
+          })
+
+      } else {
+        alert('필수 정보를 모두 입력해 주세요');
+      }
 
     })
 
