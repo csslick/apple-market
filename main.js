@@ -12,7 +12,7 @@ db.collection('product').get().then(res => {
 
 function appendHTML(data) {
   const trade_date = data.date;
-  let img_tag = '<img src="http://placehold.it/300x200">';
+  let img_tag = '<img src="https://via.placeholder.com/300x200">';
   if(data.img_url) {
     img_tag = `<img src="${data.img_url}">`
   } 
