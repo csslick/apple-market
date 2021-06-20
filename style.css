@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -31,7 +32,6 @@ nav ul li {
   margin-left: 2em;
 }
 
-
 #main {
 
 }
@@ -44,4 +44,56 @@ nav ul li {
 
 .product img {
   margin-right: 20px;
+}
+
+form {
+  padding: 20px;
+}
+
+input, textarea {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group.image-upload {
+  display: flex;
+}
+
+[type=file] {
+  display: none;
+}
+
+label[for=image-upload-btn]{
+  background: steelblue;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 8em;
+  /* box-sizing: content-box; */
+  text-align: center;
+}
+
+.upload-name {
+  border-radius: 0 5px 5px 0;
+}
+
+#send {
+  border: none;
+  background: orangered;
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  /* width: 8em; */
+  text-align: center;
 }
