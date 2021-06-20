@@ -15,7 +15,7 @@
     <h1>오이마켓</h1>
     <nav class="col">
       <ul>
-        <li><a href=".">상품</a></li>
+        <li><a href="./">상품</a></li>
         <li><a href="upload.html">상품등록</a></li>
       </ul>
     </nav>
@@ -79,18 +79,17 @@
     // 상품정보 전송
     $('#send').on('click', function(e){
       e.preventDefault();
-      const title = $('#title').val();
-      const text = $('#text').val();
-      const price = $('#price').val();
+      const inputValue = {
+        title: title = $('#title').val(),
+        text: text = $('#text').val(),
+        price: Number($('#price').val()),
+        date: new Date().toLocaleString(),
+      }
+      console.log(title, text, price)
 
       // doc().set()은 documemt명을 직접 작성, add() document명 자동생성(추천)
-      db.collection('product')
-        .add({
-          title: title,
-          text: text,
-          price: price,
-        })
-      alert('상품이 등록되었습니다');  
+      db.collection('product').add(inputValue);
+      alert('상품이 등록되었습니다');
 
     })
 

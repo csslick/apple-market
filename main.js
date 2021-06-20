@@ -11,7 +11,7 @@ db.collection('product').get().then(res => {
 })
 
 function appendHTML(data) {
-  const trade_date = data.date.toDate();
+  const trade_date = data.date;
   
   console.log(trade_date)
   const html = `
