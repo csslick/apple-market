@@ -68,23 +68,34 @@
     $(function(){
       // 파일 선택(변경)시
       $('#image-upload-btn').on('change', function(){
-        const inputValue = $('#image-upload-btn').val().replace('C:\\fakepath\\','');
-        console.log(inputValue);
-        $('.upload-name').val(inputValue);
+        const file = document.querySelector('#image-upload-btn').files[0].name;
+        console.log(file);
+        $('.upload-name').val(file);
       })
     })
   </script>
 
   <script>
-    const db = firebase.firestore();
+    const db = firebase.firestore();  // 파이어베이스 DB
+    const storage = firebase.storage(); // 스토리지(파일) 저장소
 
-    // 상품정보 전송
+    // 상품정보 전송 버튼
     $('#send').on('click', function(e){
       e.preventDefault(); // 기본 이벤트 제거
+
+      // storage에 이미지 저장
+      const file = document.querySelector('#image-upload-btn').files[0]; // 로컬 파일
+      const storageRef = 
+        storage.ref(); // 스토리지 경로
+      const savePath = 
+        storageRef.child('images/' + file.name); //저장할 경로
+      const upload = savePath.put(file); // 업로드
+
       const title = $('#title').val();
       const text = $('#text').val();
       const price = Number($('#price').val());
       const date = new Date().toLocaleString();
+      const img_url = `gs://apple-market-5181a.appspot.com/images/${file.name}`; // 이미지 파일 경로
       console.log(title, text, price)
 
       if(title && text && price) {
@@ -95,6 +106,7 @@
           text: text,
           price: price,
           date: date,
+          img_url: img_url,
         }
         console.log(title, text, price)
 
