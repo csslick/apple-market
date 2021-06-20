@@ -29,4 +29,4 @@ https://console.firebase.google.com/
 7. 콘솔 > 프로젝트 개요 > 프로젝트 설정 > 페이지 하단 내앱에서 웹 아이콘 선택 후 앱 등록 후 생성되는 SDK 코드를 HTML에 추가 
 
 
-## 강의 참조: https://online.codingapple.com/unit/firebase-installation-with-npm/?id=9822
+### 강의 참조: https://online.codingapple.com/unit/firebase-installation-with-npm/?id=9822
