@@ -108,7 +108,7 @@ label[for=image-upload-btn]{
   border-radius: 0 5px 5px 0;
 }
 
-#send {
+.btn {
   display: block;
   width: 100%;
   border: none;
@@ -120,4 +120,8 @@ label[for=image-upload-btn]{
   font-size: 14px;
   /* width: 8em; */
   text-align: center;
+}
+
+.btn-primary {
+  background: #2980b9;
 }

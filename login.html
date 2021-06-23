@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>오이마켓</title>
+  <title>로그인 - 오이마켓</title>
   <link rel="stylesheet" href="./style.css">
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,6 +22,18 @@
   </header>
 
   <section id="main">
+    <form id="register">
+      <div class="form-group">
+        <input type="text" placeholder="이름" id="name">
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="이메일" id="email">
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="비밀번호" id="pwd">
+      </div>
+      <button type="submit" class="btn btn-primary">가입하기</button>
+    </form>
   </section>
 
 
@@ -45,6 +57,30 @@
     firebase.initializeApp(firebaseConfig);
   </script>
 
-  <script src="main.js"></script>
+  <script>
+    const db = firebase.firestore(); // 파이어베이스 DB
+    const storage = firebase.storage(); // 스토리지(파일) 저장소
+
+    // 가입
+    $('#register').on('click', function(e){
+      e.preventDefault();
+
+      const email = $('#email').val();
+      const pwd = $('#pwd').val();
+      
+      firebase.auth().createUserWithEmailAndPassword(email, pwd)
+        .then(function(res){
+          // 가입성공
+          console.log(res)
+          console.log(res.user)
+        })
+        .catch(function(err){
+          // 에러
+        })
+    })
+
+
+
+  </script>
 </body>
 </html>
